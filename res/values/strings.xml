@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">KianaSyncAdapter</string>
+    <string name="label">Kiana SyncAdapter</string>
+    <string name="auth_activity_title">Click here to authenticate</string>
+    <string name="prefs">Preferences</string>
+    <string name="show_settings">Show Settings</string>
+    <string name="instructions">Enter account name to sync:</string>
+    <string name="username">Username</string>
+    <string name="button_label">Authenticate</string>
+    
+    <string name="account_type">com.ktt.contacts</string>
+
+</resources>

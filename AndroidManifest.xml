@@ -1,0 +1,64 @@
+<manifest 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.ktt.kianasyncadapter"
+    android:versionCode="1"
+    android:versionName="1.0" >
+    <uses-permission
+        android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission
+        android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission
+        android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission
+        android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission
+        android:name="android.permission.READ_SYNC_STATS" />
+    <uses-permission
+        android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission
+        android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    
+    
+    <uses-sdk android:minSdkVersion="11" android:targetSdkVersion="17" />
+
+    <application
+        tools:ignore="ExportedService"
+        android:allowBackup="false"
+        android:label="@string/app_name" >
+        <service
+            android:name="com.ktt.sync.authenticator.AuthService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticatorktt" />
+        </service>
+        <service
+            android:name="com.ktt.sync.syncadapter.SyncAdapterService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapters" />
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/syncadapterktt" />
+           <!--  <meta-data
+                android:name="android.provider.CONTACTS_STRUCTURE"
+                android:resource="@xml/contacts" /> --> 
+        </service>
+        
+        
+		<activity
+			android:name="com.ktt.sync.authenticator.AuthActivity"
+			android:label="@string/auth_activity_title"
+			android:theme="@android:style/Theme.Dialog"
+			android:excludeFromRecents="true"
+			android:configChanges="orientation"
+		/>
+
+    </application>
+
+</manifest>
