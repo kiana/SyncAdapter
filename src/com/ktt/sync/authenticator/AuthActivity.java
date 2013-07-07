@@ -40,7 +40,7 @@ public class AuthActivity extends AccountAuthenticatorActivity {
     	
     	//tell the content resolver to sync this account when receiving a network tickle
     	//note ContactsContract.AUTHORITY = "com.android.contacts"
-    	ContentResolver.setSyncAutomatically(kttAccount, ContactsContract.AUTHORITY, false);
+    	ContentResolver.setSyncAutomatically(kttAccount, ContactsContract.AUTHORITY, true);
     	
         final Intent intent = new Intent();
         intent.putExtra(AccountManager.KEY_ACCOUNT_NAME, kttAccount.name);
